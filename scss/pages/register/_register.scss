@@ -1,0 +1,87 @@
+@import "../../themes/variable";
+
+.header {
+  position: relative;
+  background-color: $bg-c1-primary;
+  height: 50px;
+  border: 1px solid #000;
+  margin-bottom: 50px;
+  .container {
+    .navbar {
+      height: 50px;
+      img {
+      }
+      nav {
+        .cart {
+          text-decoration: none;
+          img {
+            width: 31px;
+            height: 31px;
+          }
+          span {
+            @include text($text-2xl, $text-light, $text-c1-light);
+            line-height: 36.31px;
+          }
+        }
+        .soLuong {
+        }
+        .login {
+          text-decoration: none;
+
+          @include text($text-base, $text-light, $text-c2-light);
+        }
+        .register {
+          text-decoration: none;
+
+          @include text($text-base, $text-light, $text-c2-light);
+        }
+      }
+    }
+    nav {
+      .navbar-nav {
+        .nav-item {
+          margin-right: 20px;
+          .nav-link {
+            @include text($text-2xl, $text-light, $text-c1-primary);
+            opacity: 0.7;
+            position: relative;
+            &::before {
+              content: "";
+              position: absolute;
+              height: 2px;
+              width: 100%;
+              background-color: $bg-c1-primary;
+              bottom: -3px;
+              left: 0;
+              transform: scale(0, 1);
+              transition: transform 0.3s;
+            }
+
+            &:hover {
+              opacity: 1;
+              @include text($text-2xl, $text-regular, $text-c1-primary);
+              &::before {
+                transform: scale(1, 1);
+              }
+            }
+          }
+        }
+        .nav-item.active {
+          &::before {
+            content: "";
+            position: absolute;
+            height: 2px;
+            width: 72px;
+            background-color: $bg-c1-primary;
+            bottom: -1px;
+            // left: 0;
+          }
+          .nav-link {
+            @include text($text-2xl, $text-regular, $text-c1-primary);
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+}
